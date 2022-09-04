@@ -1,0 +1,15 @@
+.card {
+    background-color: white;
+    flex: 1;
+    height: 100%;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.card {
+    background-color: white !important;
+}
