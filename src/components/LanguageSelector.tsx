@@ -7,11 +7,12 @@ const { Option } = Select;
 
 const LanguageSelector: FunctionComponent = () => {
   const { t, i18n } = useTranslation();
+  const [selected, setSelected] = useState(i18n.language);
+
   const handleChange = (lng: string) => {
     i18n.changeLanguage(lng);
     setSelected(t(i18n.language.toUpperCase()));
   };
-  const [selected, setSelected] = useState();
 
   return (
     <Select

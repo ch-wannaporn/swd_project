@@ -1,13 +1,18 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./i18n";
-import TranslationPage from "./pages/TranslationPage";
+import LayoutAndStylePage from "./pages/LayoutAndStylePage";
+import SelectionPage from "./pages/SelectionPage";
 
 function App() {
   return (
-    <div>
-      <TranslationPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SelectionPage />} />
+        <Route path="/layout-style" element={<LayoutAndStylePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

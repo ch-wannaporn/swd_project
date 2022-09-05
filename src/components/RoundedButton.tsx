@@ -1,15 +1,15 @@
 import React, { FunctionComponent, ReactNode } from "react";
+import classes from "./RoundedButton.module.css";
 import { Button } from "antd";
-import classes from "./CustomButton.module.css";
 
-const CustomButton: FunctionComponent<{
+const RoundedButton: FunctionComponent<{
   children: ReactNode;
   onClick?: () => void;
 }> = ({ children, onClick }) => {
   return (
     <Button
       type="text"
-      className={classes.card}
+      className={classes["rounded-btn"]}
       onClick={() => onClick && onClick()}
     >
       {children}
@@ -17,4 +17,4 @@ const CustomButton: FunctionComponent<{
   );
 };
 
-export default CustomButton;
+export default RoundedButton;
