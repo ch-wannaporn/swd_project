@@ -7,10 +7,14 @@ import {
 } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import RoundedButton from "./RoundedButton";
+import { useTranslation } from "react-i18next";
 
 const ControlButtons: FunctionComponent<{
   setShapes: Dispatch<SetStateAction<Array<Array<JSX.Element>>>>;
-}> = ({ setShapes }) => {
+  setIsRightAlign: Dispatch<SetStateAction<number>>;
+}> = ({ setShapes, setIsRightAlign }) => {
+  const { t } = useTranslation();
+
   const onLeftClickHandler = () => {
     setShapes((shapes: JSX.Element[][]) => {
       const firstElementOnFirstRow = shapes[0][0];
@@ -37,21 +41,28 @@ const ControlButtons: FunctionComponent<{
     });
   };
 
+  const onUpAndDownClickHandler = () => {
+    setIsRightAlign((index: number) => (index === 0 ? 1 : 0));
+  };
+
   return (
     <Row justify="center" gutter={10}>
       <Col span={4}>
-        <RoundedButton onClick={onLeftClickHandler}>
+        <RoundedButton onClick={onLeftClickHandler} title={t("Move shape")}>
           <CaretLeftOutlined style={{ fontSize: "150px", color: "#878787" }} />
         </RoundedButton>
       </Col>
       <Col span={8}>
-        <RoundedButton>
+        <RoundedButton
+          onClick={onUpAndDownClickHandler}
+          title={t("Move position")}
+        >
           <CaretUpOutlined style={{ fontSize: "150px", color: "#878787" }} />
           <CaretDownOutlined style={{ fontSize: "150px", color: "#878787" }} />
         </RoundedButton>
       </Col>
       <Col span={4}>
-        <RoundedButton onClick={onRightClickHandler}>
+        <RoundedButton onClick={onRightClickHandler} title={t("Move shape")}>
           <CaretRightOutlined style={{ fontSize: "150px", color: "#878787" }} />
         </RoundedButton>
       </Col>

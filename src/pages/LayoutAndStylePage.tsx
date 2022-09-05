@@ -19,13 +19,21 @@ const LayoutAndStylePage: FunctionComponent = () => {
     [<SquareIcon />, <CircleIcon />, <EllipseIcon />],
     [<TrapezoidIcon />, <RectangleIcon />, <ParallelogramIcon />],
   ]);
+  const [isRightAlign, setIsRightAlign] = useState(0);
 
   return (
     <CustomLayout title={t("Layout & Style")}>
       <Layout className={classes.layout}>
-        <ControlButtons setShapes={setShapes} />
+        <ControlButtons
+          setShapes={setShapes}
+          setIsRightAlign={setIsRightAlign}
+        />
         <CustomDivider />
-        <MovingButtons shapes={shapes} />
+        <MovingButtons
+          shapes={shapes}
+          isRightAlign={isRightAlign}
+          setShapes={setShapes}
+        />
       </Layout>
     </CustomLayout>
   );
